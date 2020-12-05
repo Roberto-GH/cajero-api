@@ -10,6 +10,12 @@ from fastapi import HTTPException
 
 api = FastAPI()
 
+#Probando
+@api.get("/")
+async def home():
+    return {"message": "Bienvenido a su cajero de confianza"}
+
+#
 @api.post("/user/auth/")
 async def auth_user(user_in: UserIn):
 
@@ -54,42 +60,3 @@ async def make_transaction(transaction_in: TransactionIn):
     transaction_out = TransactionOut(**transaction_in_db.dict())
 
     return transaction_out
-
-
-
-
-
-
-''' EJEMPLOS
-app = FastAPI()
-
-
-@app.get("/")           # GET / HTTP/1.1 (lado del cliente)
-async def root():
-    return {"Hello": "FastApi"}
-
-@app.get("/users")      # GET /users HTTP/1.1 (lado del cliente)
-async def users():
-    return {"message": database_users}
-
-@app.get("/users/{username}")      # GET /users HTTP/1.1 (lado del cliente)
-async def get_user_username(username: str):
-    if username in database_users:
-        return {"message": database_users[username]}
-    raise HTTPException(status_code=404, detail= "El usuario no existe")
-
-@app.post("/users/")
-async def create_user(user: UserInDB):
-    database_users[user.username] = user
-    return user
-
-@app.delete("/users/")
-async def delete_user(user: UserInDB):
-    del database_users[user.username]
-    return user
-
-@app.put("/users/")
-async def delete_user(user: UserInDB):
-    database_users[user.username] = user
-    return user
-'''
