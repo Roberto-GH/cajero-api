@@ -7,6 +7,7 @@ from models.transaction_models import TransactionIn, TransactionOut
 import datetime
 from fastapi import FastAPI
 from fastapi import HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 api = FastAPI()
 
@@ -16,8 +17,11 @@ origins = [
     "http://localhost", "http://localhost:8080", "https://cajero-app4.herokuapp.com",
 ]
 api.add_middleware(
-    CORSMiddleware, allow_origins=origins,
-    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
