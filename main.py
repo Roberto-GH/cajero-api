@@ -20,10 +20,10 @@ api.add_middleware(
     allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
 )
 
-#Probando
-#@api.get("/")
-#async def home():
-    #return {"message": "Bienvenido a su cajero de confianza"}
+
+@api.get("/")
+async def home():
+    return {"message": "Bienvenido a su cajero de confianza"}
 
 
 @api.post("/user/auth/")
