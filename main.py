@@ -8,11 +8,18 @@ from models.user_models import UserIn, UserOut
 
 from models.transaction_models import TransactionIn, TransactionOut
 
+from fastapi import Depends, FastAPI
+from routers.user_router import router as router_users
+from routers.transaction_router import router as router_transactions
+
 import datetime
 
 from fastapi import FastAPI, HTTPException
 
 api = FastAPI()
+
+api.include_router(router_users)
+api.include_router(router_transactions)
 
 #########################################################
 from fastapi.middleware.cors import CORSMiddleware
