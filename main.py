@@ -8,13 +8,13 @@ from models.user_models import UserIn, UserOut
 
 from models.transaction_models import TransactionIn, TransactionOut
 
-from fastapi import Depends, FastAPI
-from routers.user_router import router as router_users
-from routers.transaction_router import router as router_transactions
-
 import datetime
 
 from fastapi import FastAPI, HTTPException
+
+from fastapi import Depends, FastAPI
+from routers.user_router import router as router_users
+from routers.transaction_router import router as router_transactions
 
 api = FastAPI()
 
@@ -27,7 +27,6 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = [
     "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
     "http://localhost", "http://localhost:8080", "http://localhost:8081",
-    "https://cajero-app-1987.herokuapp.com"
 ]
 api.add_middleware(
     CORSMiddleware, allow_origins=origins,
