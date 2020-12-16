@@ -1,12 +1,15 @@
+
 from pydantic import BaseModel
 
+
 class UserIn(BaseModel):
-    username: str
-    password: str
+    username    : str
+    password    : str
+
 
 class UserOut(BaseModel):
-    username: str
-    balance: int
+    username    : str
+    balance     : int
 
     class Config:
         orm_mode = True
